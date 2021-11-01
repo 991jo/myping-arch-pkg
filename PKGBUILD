@@ -1,12 +1,12 @@
 # Maintainer: Johannes "jo" Erwerle <jo+myping@swagspace.org>
 pkgname=myping
-pkgver=1
+pkgver=0.1
 pkgrel=1
 epoch=
 pkgdesc=""
 arch=("x86_64")
 url=""
-license=('WTFPL')
+license=('MIT')
 groups=()
 depends=(glibc)
 makedepends=(go)
@@ -19,13 +19,13 @@ backup=()
 options=()
 install="myping.install"
 changelog=
-source=("$pkgname-$pkgver.zip::https://github.com/9er/myping/archive/refs/heads/master.zip")
+source=("$pkgname-$pkgver.tar.gz::https://github.com/9er/myping/archive/refs/tags/v${pkgver}.tar.gz")
 noextract=()
 sha256sums=(SKIP)
 validpgpkeys=()
 
 build() {
-	cd "$pkgname-master"
+	cd "$pkgname-$pkgver"
 
 	export CGO_CPPFLAGS="${CPPFLAGS}"
 	export CGO_CFLAGS="${CFLAGS}"
@@ -39,6 +39,7 @@ build() {
 
 package() {
 	mkdir -p $pkgdir/usr/bin/
-	cd "$pkgname-master"
+	cd "$pkgname-$pkgver"
 	cp myping $pkgdir/usr/bin/myping
+	install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

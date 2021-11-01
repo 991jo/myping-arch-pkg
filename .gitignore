@@ -6,3 +6,5 @@ pkg
 .BUILDINFO
 .MTREE
 *.zip
+usr
+*.tar.gz
