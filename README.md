@@ -1,3 +1,5 @@
+WARNING! This repo is no longer used. The current PKGBUILD is in the AUR now.
+
 # myping MAKEPKG
 
 This repo contains a PKGBUILD file and some additional things to install
